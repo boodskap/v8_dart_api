@@ -145,6 +145,23 @@ Map<String, dynamic> _$BaseDomainEntityToJson(BaseDomainEntity instance) =>
 Domain _$DomainFromJson(Map<String, dynamic> json) => Domain(
       domainKey: json['domainKey'] as String? ?? '',
       entityState: domainEntityStateNullableFromJson(json['entityState']),
+      description: json['description'] as String? ?? '',
+      iconId: json['iconId'] as String? ?? '',
+      selectedImageId: json['selectedImageId'] as String? ?? '',
+      selectedBannerId: json['selectedBannerId'] as String? ?? '',
+      name: json['name'] as String? ?? '',
+      email: json['email'] as String? ?? '',
+      phone: json['phone'] as String? ?? '',
+      userName: json['userName'] as String? ?? '',
+      allowRegistration: json['allowRegistration'] as bool?,
+      properties: json['properties'],
+      location: json['location'] == null
+          ? null
+          : GeoLocation.fromJson(json['location'] as Map<String, dynamic>),
+      customIndexes: (json['customIndexes'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
       id: json['id'] as String? ?? '',
       rtype: json['rtype'] as String? ?? '',
       stype: json['stype'] as String? ?? '',
@@ -159,6 +176,20 @@ Map<String, dynamic> _$DomainToJson(Domain instance) => <String, dynamic>{
       if (domainEntityStateNullableToJson(instance.entityState)
           case final value?)
         'entityState': value,
+      if (instance.description case final value?) 'description': value,
+      if (instance.iconId case final value?) 'iconId': value,
+      if (instance.selectedImageId case final value?) 'selectedImageId': value,
+      if (instance.selectedBannerId case final value?)
+        'selectedBannerId': value,
+      'name': instance.name,
+      'email': instance.email,
+      if (instance.phone case final value?) 'phone': value,
+      if (instance.userName case final value?) 'userName': value,
+      if (instance.allowRegistration case final value?)
+        'allowRegistration': value,
+      if (instance.properties case final value?) 'properties': value,
+      if (instance.location?.toJson() case final value?) 'location': value,
+      if (instance.customIndexes case final value?) 'customIndexes': value,
       'id': instance.id,
       'rtype': instance.rtype,
       if (instance.stype case final value?) 'stype': value,
@@ -6192,11 +6223,7 @@ TwinUserInfo _$TwinUserInfoFromJson(Map<String, dynamic> json) => TwinUserInfo(
       city: json['city'] as String? ?? '',
       zipcode: json['zipcode'] as String? ?? '',
       clientId: json['clientId'] as String? ?? '',
-      selectedImage: (json['selectedImage'] as num?)?.toInt(),
-      images: (json['images'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          [],
+      selectedImageId: json['selectedImageId'] as String? ?? '',
       roles:
           (json['roles'] as List<dynamic>?)?.map((e) => e as String).toList() ??
               [],
@@ -6216,8 +6243,7 @@ Map<String, dynamic> _$TwinUserInfoToJson(TwinUserInfo instance) =>
       if (instance.city case final value?) 'city': value,
       if (instance.zipcode case final value?) 'zipcode': value,
       if (instance.clientId case final value?) 'clientId': value,
-      if (instance.selectedImage case final value?) 'selectedImage': value,
-      if (instance.images case final value?) 'images': value,
+      if (instance.selectedImageId case final value?) 'selectedImageId': value,
       if (instance.roles case final value?) 'roles': value,
     };
 
@@ -6247,11 +6273,7 @@ TwinUser _$TwinUserFromJson(Map<String, dynamic> json) => TwinUser(
       city: json['city'] as String? ?? '',
       zipcode: json['zipcode'] as String? ?? '',
       clientId: json['clientId'] as String? ?? '',
-      selectedImage: (json['selectedImage'] as num?)?.toInt(),
-      images: (json['images'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          [],
+      selectedImageId: json['selectedImageId'] as String? ?? '',
       roles:
           (json['roles'] as List<dynamic>?)?.map((e) => e as String).toList() ??
               [],
@@ -6282,8 +6304,7 @@ Map<String, dynamic> _$TwinUserToJson(TwinUser instance) => <String, dynamic>{
       if (instance.city case final value?) 'city': value,
       if (instance.zipcode case final value?) 'zipcode': value,
       if (instance.clientId case final value?) 'clientId': value,
-      if (instance.selectedImage case final value?) 'selectedImage': value,
-      if (instance.images case final value?) 'images': value,
+      if (instance.selectedImageId case final value?) 'selectedImageId': value,
       if (instance.roles case final value?) 'roles': value,
       if (instance.password case final value?) 'password': value,
       'id': instance.id,
@@ -6325,11 +6346,7 @@ TwinLoggedInUser _$TwinLoggedInUserFromJson(Map<String, dynamic> json) =>
       city: json['city'] as String? ?? '',
       zipcode: json['zipcode'] as String? ?? '',
       clientId: json['clientId'] as String? ?? '',
-      selectedImage: (json['selectedImage'] as num?)?.toInt(),
-      images: (json['images'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          [],
+      selectedImageId: json['selectedImageId'] as String? ?? '',
       roles:
           (json['roles'] as List<dynamic>?)?.map((e) => e as String).toList() ??
               [],
@@ -6362,8 +6379,7 @@ Map<String, dynamic> _$TwinLoggedInUserToJson(TwinLoggedInUser instance) =>
       if (instance.city case final value?) 'city': value,
       if (instance.zipcode case final value?) 'zipcode': value,
       if (instance.clientId case final value?) 'clientId': value,
-      if (instance.selectedImage case final value?) 'selectedImage': value,
-      if (instance.images case final value?) 'images': value,
+      if (instance.selectedImageId case final value?) 'selectedImageId': value,
       if (instance.roles case final value?) 'roles': value,
       if (instance.password case final value?) 'password': value,
       'id': instance.id,

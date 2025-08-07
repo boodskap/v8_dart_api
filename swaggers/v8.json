@@ -13447,7 +13447,10 @@
           "$ref": "#/definitions/BaseDomainEntity"
         },
         {
-          "$ref": "#/definitions/DomainInfo"
+          "$ref": "#/definitions/DisplayableEntity"
+        },
+        {
+          "$ref": "#/definitions/DomainBaseInfo"
         },
         {
           "$ref": "#/definitions/BaseEntity"
@@ -13651,7 +13654,6 @@
     },
     "Parameter": {
       "type": "object",
-      "discriminator": "parameter",
       "required": [
         "name",
         "parameterType",
@@ -14167,7 +14169,6 @@
     },
     "MatchGroup": {
       "type": "object",
-      "discriminator": "matchGroup",
       "required": [
         "matchType",
         "conditions"
@@ -14190,7 +14191,6 @@
     },
     "AlarmMatchGroup": {
       "type": "object",
-      "discriminator": "matchGroup",
       "required": [
         "matchType",
         "conditions",
@@ -14336,7 +14336,6 @@
     },
     "CommandParameter": {
       "type": "object",
-      "discriminator": "commandParameter",
       "required": [
         "name",
         "label",
@@ -14414,7 +14413,6 @@
     },
     "NameValue": {
       "type": "object",
-      "discriminator": "nvType",
       "required": [
         "name",
         "value"
@@ -14430,7 +14428,6 @@
     },
     "ControlTargetMqtt": {
       "type": "object",
-      "discriminator": "ctMqtt",
       "required": [
         "url",
         "topic"
@@ -14452,7 +14449,6 @@
     },
     "ControlTargetHttp": {
       "type": "object",
-      "discriminator": "ctHttp",
       "required": [
         "url",
         "protocol"
@@ -15032,7 +15028,6 @@
     },
     "NotificationTemplate": {
       "type": "object",
-      "discriminator": "nitifyTemplate",
       "required": [
         "title",
         "content"
@@ -15048,7 +15043,6 @@
     },
     "EmailTemplate": {
       "type": "object",
-      "discriminator": "emailTemplate",
       "required": [
         "subject",
         "content"
@@ -15067,7 +15061,6 @@
     },
     "FCMTemplate": {
       "type": "object",
-      "discriminator": "fcmTemplate",
       "required": [
         "title",
         "content"
@@ -15083,7 +15076,6 @@
     },
     "SMSTemplate": {
       "type": "object",
-      "discriminator": "smsTemplate",
       "required": [
         "message"
       ],
@@ -15095,7 +15087,6 @@
     },
     "VoiceTemplate": {
       "type": "object",
-      "discriminator": "voiceTemplate",
       "required": [
         "message"
       ],
@@ -15199,7 +15190,6 @@
     },
     "DisplayMatchGroup": {
       "type": "object",
-      "discriminator": "displayMatchGroup",
       "required": [
         "matchType",
         "conditions",
@@ -17511,7 +17501,6 @@
     },
     "FilterMatchGroup": {
       "type": "object",
-      "discriminator": "filterMatchGroup",
       "required": [
         "matchType",
         "conditions"
@@ -17780,7 +17769,6 @@
     },
     "AnalyticsRow": {
       "type": "object",
-      "discriminator": "parameter",
       "required": [
         "height",
         "flex",
@@ -17907,7 +17895,6 @@
     },
     "TrendValue": {
       "type": "object",
-      "discriminator": "parameter",
       "required": [
         "stamp"
       ],
@@ -17963,7 +17950,6 @@
     },
     "TimeSeriesValue": {
       "type": "object",
-      "discriminator": "parameter",
       "required": [
         "updatedStamp"
       ],
@@ -18626,14 +18612,8 @@
         "clientId": {
           "type": "string"
         },
-        "selectedImage": {
-          "type": "integer"
-        },
-        "images": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "selectedImageId": {
+          "type": "string"
         },
         "roles": {
           "type": "array",
@@ -18985,7 +18965,6 @@
     },
     "Attribute": {
       "type": "object",
-      "discriminator": "attribute",
       "required": [
         "name",
         "attributeType",
