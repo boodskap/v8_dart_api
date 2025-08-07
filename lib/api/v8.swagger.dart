@@ -30,7 +30,7 @@ abstract class V8 extends ChopperService {
     ErrorConverter? errorConverter,
     Converter? converter,
     Uri? baseUrl,
-    List<chopper.Interceptor>? interceptors,
+    Iterable<dynamic>? interceptors,
   }) {
     if (client != null) {
       return _$V8(client);
